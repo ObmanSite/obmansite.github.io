@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Обман - Магазин</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script>
+			var tovary = ["Ничего"];
+			
+			function Start(){
+				
+			}
+			
+			function ToggleMenu(){
+				if(document.getElementById("divMenu").classList == "div-menuClosed"){
+					document.getElementById("divMenu").classList.remove("div-menuClosed");
+					document.getElementById("divMenu").classList.add("div-menuOpened");
+				}
+				else{
+					document.getElementById("divMenu").classList.remove("div-menuOpened");
+					document.getElementById("divMenu").classList.add("div-menuClosed");
+				}
+			}
+			
+			function ChangeWindow(_location){
+				window.location = _location;
+			}
+			
+			function Buy(_v){
+				if(confirm("Вы уверены, что хотите купить \"" + tovary[_v] + "\"? Это обман, Вы просто отдадите свои деньги мне :3")){
+					alert("Если ты это читаешь, то создатель дебил и не добавил ссылку на DontaionAlerts");
+				}
+				else{
+					alert("Ок. Хоть кто-то обладает разумом)");
+				}
+			}
+		</script>
+		<link rel="stylesheet" href="global.css">
+	</head>
+	<body onload="Start()">
+		<div id="divMenu" class="div-menuClosed" align="center">
+			<input onclick="setTimeout(ToggleMenu, 400)" class="button" type="button" value="Закрыть">
+			<br>
+			<br>
+			<div class="div-menu-body" align="center">
+				<input onclick="setTimeout(function(){ChangeWindow('index.html');}, 400)" type="button" class="menu-button" value="Главная страница">
+				<br>
+				<br>
+				<input disabled type="button" class="menu-button" value="Магазин">
+			</div>
+		</div>
+		<div class="header">
+			<img onclick="setTimeout(ToggleMenu, 400)" src="images/menu.png" class="header-menu">
+			<h1>Обман</h1>
+		</div>
+		<div class="body-div" align="center">
+			<h2>Магазин</h2>
+			<br>
+			<hr>
+			<br>
+			<div class="shop-post" align="center">
+				<h2>Ничего</h2>
+				<hr>
+				<img class="shop-post-image" src="images/none.svg">
+				<hr>
+				<br>
+				<input onclick="setTimeout(function(){Buy(0);}, 400)" class="buy-button" type="button" value="Купить">
+				<br>
+				<br>
+			</div>
+		</div>
+	</body>
+</html>
